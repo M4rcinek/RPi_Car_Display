@@ -104,7 +104,7 @@ def draw_speed_gauge(center_x, radius, value):
     needle_width = int(radius * 0.025)
     ring_thickness = int(radius * 0.01)
 
-    #poniżej już rysowanie ale kodu nie ogarniam do końca (spytaj chatagpt, żeby powiedział co i jak tu jest, dość skomplikowany kod :/ )
+    #poniżej już rysowanie
     label_text = headerFont.render("PRĘDKOŚĆ", True, white)
     label_rect = label_text.get_rect(center=(center_x, label_y))
     screen.blit(label_text, label_rect)
@@ -193,7 +193,7 @@ def draw_oil_container(center_x, temp):
     body_rect = pygame.Rect(body_left, body_top, body_width, body_height)
     pygame.draw.rect(screen, liquid_color, body_rect)
 
-    #tu chyba wypełnienie(?)
+    #wypełnienie
     mid_y = body_top + int(body_height * 0.55)
     pygame.draw.rect(screen, liquid_color, (body_left - step_w, mid_y - step_h, step_w, step_h))
     pygame.draw.rect(screen, liquid_color, (body_left - step_w, mid_y, step_w, step_h))
@@ -208,7 +208,7 @@ def draw_oil_container(center_x, temp):
     cap_y = neck_y - cap_h + border_thickness
     pygame.draw.rect(screen, liquid_color, (cap_x, cap_y, cap_w, cap_h))
 
-    #tu obstawiam, że rysowanie czarnego wypełnienia pojemnika
+    #rysowanie czarnego wypełnienia pojemnika
     inner_rect = pygame.Rect(
         body_left + border_thickness,
         body_top + border_thickness,
@@ -246,7 +246,7 @@ def draw_throttle_bar(center_x, throttle_percent):
 
     pygame.draw.rect(screen, white, (bar_x, bar_y, bar_width, bar_height), border)
 
-    #tu chyba zmienne i instrukcje które mają za zadanie poruszać wypełnieniem tego słupka
+    #tu zmienne i instrukcje które mają za zadanie poruszać wypełnieniem tego słupka
     fill_percentage = clamp(throttle_percent, THROTTLE_MIN, THROTTLE_MAX) / THROTTLE_MAX
     fill_height = int((bar_height - border*2) * fill_percentage)
     fill_y = bar_y + bar_height - fill_height - border
